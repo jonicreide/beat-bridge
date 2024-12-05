@@ -8,9 +8,8 @@ import { OAuth2Client, TokenPayload } from 'google-auth-library';
 
 @Injectable()
 export class GoogleOAuthProvider implements OAuth2Provider {
-  private readonly CLIENT_ID =
-    '685403318585-i36ukdo482kf6efsups3q80hq228ld9l.apps.googleusercontent.com';
-  private readonly CLIENT_SECRET = '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';
+  private readonly CLIENT_ID = '';
+  private readonly CLIENT_SECRET = '';
   private readonly REDIRECT_URI =
     'http://localhost:3001/api/auth/callback/google';
 
