@@ -10,8 +10,7 @@ import { OAuth2Client, TokenPayload } from 'google-auth-library';
 export class GoogleOAuthProvider implements OAuth2Provider {
   private readonly CLIENT_ID = '';
   private readonly CLIENT_SECRET = '';
-  private readonly REDIRECT_URI =
-    'http://localhost:3001/api/auth/callback/google';
+  private readonly REDIRECT_URI = '';
 
   private readonly googleOAuthClient: OAuth2Client;
 
