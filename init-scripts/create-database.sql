@@ -1,0 +1,1 @@
+CREATE DATABASE beat_bridge;

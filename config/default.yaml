@@ -1,0 +1,10 @@
+google:
+  clientId: null
+  clientSecret: null
+  redirectUri: http://localhost:3001
+postgres:
+  host: localhost
+  port: 5432
+  database: postgres
+  user: postgres
+  password: postgres

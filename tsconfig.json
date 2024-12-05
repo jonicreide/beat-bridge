@@ -1,21 +1,24 @@
 {
+  "extends": "mandrade-ts-config",
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "module": "CommonJS",
+    "target": "ESNext",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
-    "sourceMap": true,
+    "declaration": false,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "rootDir": "./", 
+    "baseUrl": "src",
+    "paths": {
+      "application/*": ["application/*"],
+      "domain/*": ["domain/*"],
+      "infrastructure/*": ["infrastructure/*"],
+      "utils/*": ["utils/*"]
+    },
     "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
     "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "strictPropertyInitialization": false
+  },
+  "include": ["**/*.ts", "**/*.js"],
+  "exclude": ["node_modules", "dist"]
 }

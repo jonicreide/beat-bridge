@@ -1,0 +1,30 @@
+services:
+  test-db:
+    image: postgres:16.4-alpine3.20
+    ports:
+      - 65432:5432
+    volumes:
+      - type: volume
+        source: test-db-data
+        target: /var/lib/postgresql/data
+      - ../init-scripts:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      retries: 5
+
+  migrations:
+    build:
+      context: ../
+      dockerfile: ./Dockerfile.migrations
+    network_mode: 'service:test-db'
+    depends_on:
+      test-db:
+        condition: service_healthy
+    environment:
+      DB_HOST: test-db
+
+volumes:
+  test-db-data: {}
